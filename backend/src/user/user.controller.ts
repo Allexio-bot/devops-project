@@ -6,7 +6,7 @@ import {
   Body
 } from '@nestjs/common';
 import { 
-    ApiUseTags,
+    ApiTags,
     ApiBearerAuth 
 } from '@nestjs/swagger';
 
@@ -16,7 +16,7 @@ import { UserService } from './user.service';
 import { AuthGuard }   from '@nestjs/passport';
 import { AddCoursDTO } from './dto/addcours.dto';
 
-@ApiUseTags('user')
+@ApiTags('user')
 @ApiBearerAuth()
 @Controller('user')
 @UseGuards(AuthGuard())

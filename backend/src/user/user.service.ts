@@ -3,10 +3,9 @@ import {
     Inject,
     Logger
 } from '@nestjs/common';
-import { Model, connect } from 'mongoose';
+import { Model } from 'mongoose';
 import { Course } from './interfaces/course.interface';
 import { User } from './interfaces/user.interface';
-import { CourseSchema } from '../user/schemas/course.schema';
 
 interface CreateUser {
     firstName:string; 

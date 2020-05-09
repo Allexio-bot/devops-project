@@ -14,7 +14,7 @@ import * as fs from 'fs';
 import * as compression from 'compression';
 
 const logger = new Logger("Boostrap");
-const PRODUCTION:boolean = JSON.parse(process.env.production);
+const PRODUCTION:boolean = process.env.production  ? JSON.parse(process.env.production) : false;
 if (!PRODUCTION) {
   dotenv.config();
 }

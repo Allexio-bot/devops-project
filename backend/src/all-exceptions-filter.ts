@@ -61,9 +61,9 @@ export class AllExceptionsFilter implements ExceptionFilter {
         exception instanceof UnauthorizedException        ||
         exception instanceof UnprocessableEntityException ||
         exception instanceof UnsupportedMediaTypeException) {
-        const { statusCode, message, error } = exception.message;
-        status = statusCode;
-        data = message || error;
+        const {  message } = exception;
+        status = exception.getStatus();
+        data = message || exception.getResponse();
     }else {
       status = 500;
       data = "Internal server error";

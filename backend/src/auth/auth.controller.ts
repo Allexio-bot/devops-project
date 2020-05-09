@@ -6,15 +6,14 @@ import {
     Logger, 
     ForbiddenException
 } from '@nestjs/common';
-import { ApiUseTags, ApiBearerAuth } from "@nestjs/swagger";
+import { ApiTags, ApiBearerAuth } from "@nestjs/swagger";
 import { AuthGuard } from '@nestjs/passport';
 import { GetGuard, Guard } from '../jwt/get-guard.decorator';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
-import { IsLoggedDto } from './dto/isLoged.dto';
 
-@ApiUseTags('auth')
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
 

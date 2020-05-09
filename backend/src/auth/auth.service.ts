@@ -15,7 +15,6 @@ import { UserService } from '../user/user.service';
 import { User } from '../user/interfaces/user.interface';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
-import { JwtModule } from 'src/jwt/jwt.module';
 
 export interface Ret {code:number, data:string}
 
