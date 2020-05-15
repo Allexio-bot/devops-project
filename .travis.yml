@@ -1,4 +1,9 @@
 language: node_js
+  - "7"
+
+"scripts": {
+  "test": "npx jest"
+},
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
