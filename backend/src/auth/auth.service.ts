@@ -49,17 +49,22 @@ export class AuthService {
         createUserDto.email = createUserDto.email.toUpperCase();
         createUserDto.firstName = createUserDto.firstName.toUpperCase();
         createUserDto.lastName = createUserDto.lastName.toUpperCase();
+        console.log("--before bcrypt**");
         createUserDto.password = await Bcrypt.hash(createUserDto.password, 10);
+        
+        console.log("--before**");
         let user = await this.userService.findByEmail(createUserDto.email);
         if (user) {
             this.logger.error(`Tried to register with already exist email [${createUserDto.email}]`);
             throw new ConflictException(`Email [${createUserDto.email}] already in use`);
         }
 
+        console.log("--ùùùù**", user);
         user = await this.userService.create({
             ...createUserDto,
             status:'student-extern'
         });
+        console.log("--**", user);
         return this.getToken(user.email, user.status);
     }
 

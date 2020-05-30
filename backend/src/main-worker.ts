@@ -1,38 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, Logger } from "@nestjs/common";
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-
 import { AllExceptionsFilter } from "./all-exceptions-filter";
 import { AppModule } from './app.module';
 import * as crypto from "crypto";
 import * as helmet from "helmet";
 import * as rateLimit from 'express-rate-limit';
-import * as dotenv from "dotenv";
 import * as cors from "cors";
 import * as express from "express";
 import * as fs from 'fs';
 import * as compression from 'compression';
-
-const logger = new Logger("Boostrap");
-const PRODUCTION:boolean = process.env.production  ? JSON.parse(process.env.production) : false;
-if (!PRODUCTION) {
-  dotenv.config();
-}
-
-const VARIABLES_REQUIRED = [
-  "port",
-  "production",
-  "nbr_modulus_length",
-  "hash_jwt_blacklist",
-  "nbr_jwt_duration"
-];
-VARIABLES_REQUIRED.forEach(variable => {
-  if (typeof process.env[variable] !== "string") {
-    const msg = `Please be a good developer and give the environment variable [${variable}] as a string !!`;
-    logger.error(msg);
-    process.exit(1);
-  }
-});
 
 const PORT:number = Number(process.env.port);
 const modulusLength = Number(process.env.nbr_modulus_length);
@@ -78,17 +54,6 @@ async function bootstrap() {
   }));
   app.useLogger(logger);
   app.useGlobalFilters(new AllExceptionsFilter());
-
-  if (!PRODUCTION) {
-    const options = new DocumentBuilder()
-    .setTitle('School documentation')
-    .setVersion('1.0')
-    .addTag('school')
-    .addBearerAuth()
-    .build();
-    const document = SwaggerModule.createDocument(app, options);
-    SwaggerModule.setup('docs', app, document);
-  }
 
   await app.listen(PORT);
   console.log(`App is listenning on port ${PORT}`);

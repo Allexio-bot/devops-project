@@ -104,16 +104,16 @@ function randomDate(start, end, startHour, endHour) {
 
 export const build = async () => {
     const options = {
-        useFindAndModify:false,
-        useUnifiedTopology: true, 
-        useNewUrlParser: true, 
-        useCreateIndex: true 
+      useFindAndModify:false,
+      useUnifiedTopology: true, 
+      useNewUrlParser: true, 
+      useCreateIndex: true 
     };
     const { mongo_connection } = process.env;
     logger.log(mongo_connection);
     let connection = await connect(mongo_connection, options);
     logger.log("Mongodb connection done");
-    
+
     const coursModel   = connection.model("cours", CourseSchema);
     const classModel   = connection.model("class", ClassSchema);
     const userModel    = connection.model("user", UserSchema);

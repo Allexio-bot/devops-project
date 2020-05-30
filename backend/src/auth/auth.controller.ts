@@ -28,6 +28,7 @@ export class AuthController {
             throw new ForbiddenException("Passwords must be the same");
 
         const token = await this.authService.register(userDto);
+        console.log("---", token);
         return {
             code:200,
             data:token
