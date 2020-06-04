@@ -8,3 +8,9 @@ class TestParser:
 
     def test_help(self):
         assert parser.help_print() == parser.parser("help")
+
+    def test_map(self):
+        assert inter.map_printer() == parser.parser("map")
+
+    def test_about(self):
+        assert parser.about_print() == parser.parser("about")
