@@ -1,4 +1,5 @@
 # sotbot
+[![Build Status](https://travis-ci.org/D-for-Devops/devops-project.svg?branch=master)](https://travis-ci.org/D-for-Devops/devops-project)
 A sea of thieves discord bot that lets you store information in a database and then query it back to explore at your own pace.
 ## installation:
 ### prerequisites:
