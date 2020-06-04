@@ -165,7 +165,7 @@ def add_info_to_island(island_name, info):
 
 
 def load_data():
-    with open("data/sot_island_data", "r") as file:
+    with open("../data/sot_island_data", "r") as file:
         raw_data = file.read()
     return ast.literal_eval(raw_data)
 
