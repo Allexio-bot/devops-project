@@ -160,9 +160,17 @@ def add_info_to_island(island_name, info):
                 data[index]["animals"][info] = True
                 write_data(data)
                 return "data updated successfully!"
-        return "The island mentioned could not be found."
+        return "The mentioned island could not be found."
     return "Couldn't add that info to an island."
 
+def remove_island(island_name):
+    data = load_data()
+    for index, island in enumerate(data):
+        if island["name"] == island_name:
+            data.pop(index)
+            write_data(data)
+            return "Successfuly removed the island."
+    return "The mentioned island could not be found."
 
 
 def load_data():
