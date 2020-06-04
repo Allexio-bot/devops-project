@@ -42,7 +42,8 @@ The database starts empty and as you go along, you can add more information to c
     ```add [pig/snake/chicken] to [island name]```
         Adds an animal type to an island already present in the database.
     ```add [coordinates] to [island name]```
-        Adds coordinates to an island already present in the database.
+        Adds coordinates to an island already present in the database.\n
+        Coordinates must be in A-0 format.
     ```[island name]```
         Prints information about a specific island.
     ```map```
