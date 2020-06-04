@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Beginning deployment"
 echo "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 --decode > cert.crt
 /usr/local/bin/kubectl \
   --kubeconfig=/dev/null \
@@ -12,4 +13,5 @@ echo "The build number is ${TRAVIS_BUILD_NUMBER}"
   --server=$KUBERNETES_SERVER \
   --certificate-authority=cert.crt \
   --token=$KUBERNETES_TOKEN \
-  set image deployment/pypytest devops-project=$DOCKER_USERNAME/devops-project:${TRAVIS_BUILD_NUMBER} --record
+  set image deployment/devops-project devops-project=$DOCKER_USERNAME/devops-project:${TRAVIS_BUILD_NUMBER} --record
+echo "Ending deployment"
