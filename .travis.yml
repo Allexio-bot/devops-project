@@ -24,6 +24,7 @@ install:
 script:
   - cd src
   - pytest -q tests.py
+  - cd ..
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
@@ -38,8 +39,6 @@ after_failure:
 
 deploy:
   provider: script
-  script:
-  - pwd
-  - bash scripts/deploy.sh
+  script: bash scripts/deploy.sh
   on:
     branch: master
