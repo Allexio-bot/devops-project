@@ -1,19 +1,14 @@
-from python
+from python:3.6
 
-RUN mkdir /bot
+RUN mkdir -p /bot/src
 
-COPY ./bot.py /bot
-
-COPY ./my_parser.py /bot
-
-COPY ./sot_interaction.py /bot
+COPY src /bot/src
 
 COPY ./data /bot
 
-COPY ./requirements.txt /bot
+COPY ./requirements.txt /
 
-RUN cd /bot \
-    pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
