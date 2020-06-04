@@ -1,6 +1,5 @@
-import pytest
-import src.my_parser as parser
-import src.sot_interaction as inter
+import my_parser as parser
+import sot_interaction as inter
 
 class TestParser:
     def test_where_is_standard(self):
@@ -8,4 +7,4 @@ class TestParser:
         assert inter.object_searcher("x") == parser.parser(input)
 
     def test_help(self):
-        assert parser.help_print == parser.parser("help")
+        assert parser.help_print() == parser.parser("help")

@@ -8,7 +8,7 @@ install:
 
 # command to run tests
 script:
-  - pytest -q tests.py
+  - pytest -q src/tests.py
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
