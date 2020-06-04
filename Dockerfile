@@ -1,10 +1,10 @@
 from python:3.6
 
-RUN mkdir -p /bot/src
+RUN mkdir /bot
 
 COPY src /bot/src
 
-COPY ./data /bot
+COPY ./data /bot/data
 
 COPY ./requirements.txt /
 
