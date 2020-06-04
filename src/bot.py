@@ -15,6 +15,7 @@ async def on_message(message):
         return
 
     if message.content.startswith(PREFIX):
+        print("input: ", message.content.replace(PREFIX, ""))
         await message.channel.send(my_parser.parser(message.content.replace(PREFIX, "")))
 
 def startup():
