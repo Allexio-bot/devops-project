@@ -21,7 +21,12 @@ def parser(command):
             return inter.add_info_to_island(args[1], args[0])
         else:
             return inter.add_island(command)
-    
+
+    elif "remove " in command:
+        command = command.replace("remove ", "")
+        #return inter.remove_island(command)
+        return "Feature not implemented yet."
+
     elif command == "help":
         return help_print()
 
