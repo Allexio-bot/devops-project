@@ -1,4 +1,5 @@
 import ast
+import os
 
 def object_searcher(object_name):
     pass
@@ -165,9 +166,17 @@ def add_info_to_island(island_name, info):
 
 
 def load_data():
-    with open("../data/sot_island_data", "r") as file:
-        raw_data = file.read()
-    return ast.literal_eval(raw_data)
+    if os.path.isdir("../data") is False:
+        os.mkdir("../data")
+    try:
+        with open("../data/sot_island_data", "r") as file:
+            raw_data = file.read()
+        return ast.literal_eval(raw_data)
+    except FileNotFoundError:
+        print("Data file was not found! Creating empty data file!")
+        with open("../data/sot_island_data", "w") as file:
+            file.write("[]")
+        return []
 
 def clean_list(python_list):
     clean_list = ""
@@ -181,5 +190,5 @@ def clean_list(python_list):
     return clean_list
 
 def write_data(data):
-    with open("data/sot_island_data", "w") as file:
+    with open("../data/sot_island_data", "w") as file:
         file.write(str(data))
