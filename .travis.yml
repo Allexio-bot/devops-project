@@ -38,6 +38,8 @@ after_failure:
 
 deploy:
   provider: script
-  script: bash scripts/deploy.sh
+  script:
+  - pwd
+  - bash scripts/deploy.sh
   on:
     branch: master
