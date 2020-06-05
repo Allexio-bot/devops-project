@@ -24,8 +24,8 @@ def parser(command):
 
     elif "remove " in command:
         command = command.replace("remove ", "")
-        return inter.remove_island(command)
-        #return "Feature not implemented yet."
+        #return inter.remove_island(command)
+        return "Feature not implemented yet."
 
     elif command == "help":
         return help_print()
