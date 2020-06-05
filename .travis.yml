@@ -11,10 +11,6 @@ services:
 before_install:
   - curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
   - chmod +x kubectl && sudo mv kubectl /usr/local/bin/kubectl
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t "$DOCKER_USERNAME"/devops-project:$TRAVIS_BUILD_NUMBER -t "$DOCKER_USERNAME"/devops-project:latest .
-  - docker push "$DOCKER_USERNAME"/devops-project:$TRAVIS_BUILD_NUMBER
-  - docker push "$DOCKER_USERNAME"/devops-project:latest
 
 # command to install dependencies
 install:
@@ -30,9 +26,11 @@ after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
   - chmod +x send.sh
   - ./send.sh success $DISCORD_WEBHOOK
-  - echo "Before updating kube ça semble good"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t "$DOCKER_USERNAME"/devops-project:$TRAVIS_BUILD_NUMBER -t "$DOCKER_USERNAME"/devops-project:latest .
+  - docker push "$DOCKER_USERNAME"/devops-project:$TRAVIS_BUILD_NUMBER
+  - docker push "$DOCKER_USERNAME"/devops-project:latest
   - bash scripts/updateKube.sh
-  - echo "After updating kube ça semble good aussi"
 
 after_failure:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
