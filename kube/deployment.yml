@@ -16,8 +16,13 @@ spec:
         app: devops-project
     spec:
       containers:
-        - name: devops-project
-          image: pyrrha/devops-project:latest
-          ports:
-            - containerPort: 80
-              name: http
+        -
+          env: 
+            - 
+              name: discord_sot_token
+              valueFrom:
+                secretKeyRef:
+                  name: devops-project
+                  key: discord_sot_token
+          - name: devops-project
+            image: pyrrha/devops-project:latest
