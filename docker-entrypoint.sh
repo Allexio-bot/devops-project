@@ -2,6 +2,4 @@
 
 cd /bot/src
 
-echo "Envrionnment variable: ${discord_sot_token}"
-
-discord_sot_token='NjY0ODI2NjQ0MjM3NjQ3ODk1.Xhcvkw.iubQpzfjA-rIcg-iz-Hwzzx3dDc'; python3 bot.py
+discord_sot_token=NzE4MjY4OTgyNDUyNDIwNjcw.Xtmh_g.IrJz02LNs8j90eG8aV-t9o9c35w python3 bot.py
