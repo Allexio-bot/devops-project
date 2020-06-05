@@ -1,11 +1,17 @@
 # sotbot
 [![Build Status](https://travis-ci.org/D-for-Devops/devops-project.svg?branch=master)](https://travis-ci.org/D-for-Devops/devops-project)
+
 A sea of thieves discord bot that lets you store information in a database and then query it back to explore at your own pace.
+
 ## installation:
+
 ### prerequisites:
+
 * latest python3 (https://www.python.org/downloads/)
 * latest discord.py (```pip install discord.py```)
+
 ### how to use
+
 * create an application on discord https://discordapp.com/developers/applications/ (takes two clicks)
 * make a bot for the application you create (on the left click on "bot" and then click on "add bot")
 * save that bot's token as an environment variable on your system called "discord_sot_token" (you might need to restart after this!!)
