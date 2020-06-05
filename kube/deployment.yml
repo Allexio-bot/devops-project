@@ -21,11 +21,3 @@ spec:
           ports:
             - containerPort: 80
               name: http
-          volumeMounts:
-            - name: discord_token
-              mountPath: "/bot/discord_token"
-              readOnly: true
-          volumes:
-          - name: discord_token
-            secret:
-              secretName: discord-sot-token
