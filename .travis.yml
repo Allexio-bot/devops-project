@@ -42,3 +42,4 @@ deploy:
   script: bash scripts/deploy.sh
   on:
     branch: master
+
