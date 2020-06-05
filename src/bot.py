@@ -19,9 +19,9 @@ async def on_message(message):
         await message.channel.send(my_parser.parser(message.content.replace(PREFIX, "")))
 
 def startup():
-    try:
+    if os.getenv("discord_sot_token") is not None:
         client.run(os.getenv("discord_sot_token"))
-    except:
+    else:
         print("Could not access environment variable!")
 
 startup()
