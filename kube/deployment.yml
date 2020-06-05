@@ -16,13 +16,11 @@ spec:
         app: devops-project
     spec:
       containers:
-        -
-          env: 
-            - 
-              name: discord_sot_token
+        - env: 
+            - name: discord_sot_token
               valueFrom:
                 secretKeyRef:
                   name: devops-project
                   key: discord_sot_token
-          - name: devops-project
-            image: pyrrha/devops-project:latest
+          name: devops-project
+          image: pyrrha/devops-project:latest
