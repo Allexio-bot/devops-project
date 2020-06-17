@@ -25,3 +25,4 @@ def startup():
         print("Could not access environment variable!")
 
 startup()
+
